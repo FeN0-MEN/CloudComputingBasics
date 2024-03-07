@@ -1,4 +1,5 @@
 package org.example;
+
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.net.*;
@@ -7,13 +8,14 @@ import com.google.gson.*;
 
 public class Server {
 
-  private static final String FILE_NAME = "G:\\repos\\CloudComputingBasics\\lab2\\NoticeBoard\\Server\\src\\main\\java\\org\\example\\messages.json";
+  private static final String FILE_NAME = "messages.json";
   private static List<String> messages = new ArrayList<>();
+  private static final int PORT = 19001;
 
   public static void main(String[] args) {
     loadMessages();
 
-    try (ServerSocket serverSocket = new ServerSocket(8000)) {
+    try (ServerSocket serverSocket = new ServerSocket(PORT)) {
       System.out.println("Сервер запущен...");
 
       while (true) {

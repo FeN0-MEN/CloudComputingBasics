@@ -3,9 +3,10 @@ import java.io.*;
 import java.net.*;
 
 public class Client {
-
+  private static final String HOST = "localhost";
+  private static final int PORT = 19001;
   public static void main(String[] args) {
-    try (Socket socket = new Socket("localhost", 8000);
+    try (Socket socket = new Socket(HOST, PORT);
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))) {
